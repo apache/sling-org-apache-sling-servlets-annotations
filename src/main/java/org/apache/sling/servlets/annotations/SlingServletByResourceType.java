@@ -23,8 +23,9 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
  * Takes care of writing the relevant component properties as being used by the Sling Servlet Resolver ({@link ServletResolverConstants})
  * to register the annotated servlet component as Sling servlet for a specific resource type.
  * 
- * @see <a href="https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingServlet.java">Felix SCR annotations</a>
+ * @see <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html">Sling Servlets</a>
  * @see ServletResolverConstants
+ * @see <a href="https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingServlet.java">Felix SCR annotation</a>
  */
 @ComponentPropertyType
 public @interface SlingServletByResourceType {
