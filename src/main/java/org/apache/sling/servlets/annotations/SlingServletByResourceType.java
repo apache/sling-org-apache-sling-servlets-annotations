@@ -42,7 +42,8 @@ public @interface SlingServletByResourceType {
      * One ore more request URL selectors supported by the servlet. The
      * selectors must be configured in the order as they would be specified in the URL that
      * is as a list of dot-separated strings such as <em>print.a4</em>.
-     * In case this is not empty all selectors must match, otherwise the servlet is not executed.
+     * In case this is not empty the first selector(s) (i.e. the most right-hand ones in the URL) must match, 
+     * otherwise the servlet is not executed. After that may follow arbitrarily many non-registered selectors.
      * @see ServletResolverConstants#SLING_SERVLET_SELECTORS
      */
     String[] sling_servlet_selectors() default {};
