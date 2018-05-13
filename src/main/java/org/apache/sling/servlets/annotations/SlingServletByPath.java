@@ -33,6 +33,11 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
 public @interface SlingServletByPath {
 
     /**
+     * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
+     */
+    static final String PREFIX_ = "sling.servlet.";
+    
+    /**
      * The absolute paths under which the servlet is accessible as a resource.
      * A relative path is made absolute by prefixing it with the value set through the
      * {@link #sling_servlet_prefix()} element.
@@ -47,7 +52,7 @@ public @interface SlingServletByPath {
      * 
      * @see ServletResolverConstants#SLING_SERVLET_PATHS
      */
-    String[] sling_servlet_paths();
+    String[] paths();
     
     /**
      * The prefix/index to be used to register this servlet.
@@ -71,14 +76,5 @@ public @interface SlingServletByPath {
      * In case even that one is not set "/" is used as prefix.
      * @see ServletResolverConstants#SLING_SERVLET_PREFIX
      */
-    String sling_servlet_prefix() default "";
-    
-    /**
-     * Containing the name of the servlet. If this is empty, the
-     * <code>component.name</code> property or the <code>service.pid</code>
-     * is used. If none of the three properties is defined, the Servlet is
-     * ignored.
-     * @see ServletResolverConstants#SLING_SERVLET_NAME
-     */
-    String sling_core_servletName() default "";
+    String prefix() default "";
 }

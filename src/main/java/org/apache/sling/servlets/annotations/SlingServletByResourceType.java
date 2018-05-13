@@ -30,13 +30,18 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
 public @interface SlingServletByResourceType {
 
     /**
+     * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
+     */
+    static final String PREFIX_ = "sling.servlet.";
+
+    /**
      * The resource type(s) supported by the servlet (value
      * is "sling.servlet.resourceTypes").
      * A relative resource type is made absolute by prefixing it with the value set through the
      * {@link #sling_servlet_prefix()} property.
      * <p>
      */
-    String[] sling_servlet_resourceTypes();
+    String[] resourceTypes();
     
     /**
      * One ore more request URL selectors supported by the servlet. The
@@ -46,7 +51,7 @@ public @interface SlingServletByResourceType {
      * otherwise the servlet is not executed. After that may follow arbitrarily many non-registered selectors.
      * @see ServletResolverConstants#SLING_SERVLET_SELECTORS
      */
-    String[] sling_servlet_selectors() default {};
+    String[] selectors() default {};
     
     /**
      * The request URL extensions supported by the servlet
@@ -55,7 +60,7 @@ public @interface SlingServletByResourceType {
      * It this is not set, the servlet is not limited to certain extensions.
      * @see ServletResolverConstants#SLING_SERVLET_EXTENSIONS
      */
-    String[] sling_servlet_extensions() default {};
+    String[] extensions() default {};
     
     /**
      * The request methods supported by the servlet. The value may be one of the HTTP 
@@ -65,7 +70,7 @@ public @interface SlingServletByResourceType {
      * @see ServletResolverConstants#SLING_SERVLET_METHODS
      * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3">HTTP 1.1 Spec Methods</a>
      */
-    String[] sling_servlet_methods() default {};
+    String[] methods() default {};
     
     /**
      * The prefix/index to be used to register this servlet.
@@ -89,14 +94,5 @@ public @interface SlingServletByResourceType {
      * In case even that one is not set "/" is used as prefix.
      * @see ServletResolverConstants#SLING_SERVLET_PREFIX
      */
-    String sling_servlet_prefix() default "";
-    
-    /**
-     * Containing the name of the servlet. If this is empty, the
-     * <code>component.name</code> property or the <code>service.pid</code>
-     * is used. If none of the three properties is defined, the Servlet is
-     * ignored.
-     * @see ServletResolverConstants#SLING_SERVLET_NAME
-     */
-    String sling_core_servletName() default "";
+    String prefix() default "";
 }
