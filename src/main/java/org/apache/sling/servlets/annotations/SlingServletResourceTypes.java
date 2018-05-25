@@ -42,7 +42,7 @@ public @interface SlingServletResourceTypes {
      * {@link SlingServletPrefix} annotation.
      * <p>
      */
-    String[] resourceTypes();
+    String[] resourceType();
     
     /**
      * One ore more request URL selectors supported by the servlet. The
@@ -52,24 +52,24 @@ public @interface SlingServletResourceTypes {
      * otherwise the servlet is not executed. After that may follow arbitrarily many non-registered selectors.
      * @see ServletResolverConstants#SLING_SERVLET_SELECTORS
      */
-    String[] selectors() default {};
+    String[] selector() default {};
     
     /**
-     * The request URL extensions supported by the servlet
+     * The request URL extension(s) supported by the servlet
      * for GET requests.
      * <p>
      * It this is not set, the servlet is not limited to certain extensions.
      * @see ServletResolverConstants#SLING_SERVLET_EXTENSIONS
      */
-    String[] extensions() default {};
+    String[] extension() default {};
     
     /**
-     * The request methods supported by the servlet. The value may be one of the HTTP 
+     * The request method(s) supported by the servlet. The value may be one of the HTTP 
      * methods or "*" for all methods.
      * <p>
      * If this is not set (i.e. empty array) it is assumed to be {@code GET} and {@code HEAD}.
      * @see ServletResolverConstants#SLING_SERVLET_METHODS
      * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3">HTTP 1.1 Spec Methods</a>
      */
-    String[] methods() default {};
+    String[] method() default {};
 }
