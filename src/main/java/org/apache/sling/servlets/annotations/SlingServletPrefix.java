@@ -19,12 +19,10 @@ package org.apache.sling.servlets.annotations;
 import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.osgi.service.component.annotations.ComponentPropertyType;
 /**
- * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlets.
- * Takes care of writing the relevant component properties as being used by the Sling Servlet Resolver ({@link ServletResolverConstants})
- * to register the annotated servlet component as Sling servlet for a specific path.
- * Preferably register Sling servlets by resource type ({@link SlingServletResourceTypes}) though 
- * for reasons outlined at <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html#caveats-when-binding-servlets-by-path">
- * Caveats when binding servlets by path</a>
+ * The prefix/index to be used to register this servlet.
+ * Must be used in combination with either {@link SlingServletPaths} or {@link SlingServletResourceTypes}.
+ * It only is applied as prefix to {@link SlingServletPaths} or {@link SlingServletResourceTypes#resourceTypes()} 
+ * in case they do not start with a "/".
  *
  * @see <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html">Sling Servlets</a>
  * @see ServletResolverConstants
@@ -34,10 +32,6 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
 public @interface SlingServletPrefix {
 
     /**
-     * The prefix/index to be used to register this servlet.
-     * It only is applied as prefix to {@link SlingServletPaths} or {@link SlingServletResourceTypes#resourceTypes()} 
-     * in case they do not start with a "/".
-     * </p>
      * <ul>
      * <li>If the value of this element is a number, it defines the index of the search
      * path entries from the resource resolver. The defined search path is used as
@@ -56,5 +50,4 @@ public @interface SlingServletPrefix {
      * @see ServletResolverConstants#SLING_SERVLET_PREFIX
      */
     String value();
-    // TODO: does not work due to https://github.com/bndtools/bnd/issues/2445
 }

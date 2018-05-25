@@ -53,12 +53,6 @@
             <version>2.16.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.api</artifactId>
-            <!-- https://issues.apache.org/jira/browse/SLING-6249, only for link in javadoc -->
-            <version>2.16.0</version>
-        </dependency>
-        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>

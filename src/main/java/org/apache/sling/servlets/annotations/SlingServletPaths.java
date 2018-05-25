@@ -47,6 +47,4 @@ public @interface SlingServletPaths {
      * @see ServletResolverConstants#SLING_SERVLET_PATHS
      */
     String[] value();
-
-    // TODO: does not work due to https://github.com/bndtools/bnd/issues/2445
 }
