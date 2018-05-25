@@ -22,7 +22,7 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
 /**
  * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlets.
  * Takes care of writing the relevant component properties to set a name for a Sling Servlet.
- * Must be combined with either {@link SlingServletByResourceType} or {@link SlingServletByPath}.
+ * Must be combined with either {@link SlingServletResourceTypes} or {@link SlingServletPaths}.
  *
  * @see <a href="https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingServlet.java">Felix SCR annotations</a>
  * @see ServletResolverConstants

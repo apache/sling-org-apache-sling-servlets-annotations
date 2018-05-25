@@ -28,7 +28,7 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
  * @see <a href="https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingServlet.java">Felix SCR annotation</a>
  */
 @ComponentPropertyType
-public @interface SlingServletByResourceType {
+public @interface SlingServletResourceTypes {
 
     /**
      * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
@@ -39,7 +39,7 @@ public @interface SlingServletByResourceType {
      * The resource type(s) supported by the servlet (value
      * is "sling.servlet.resourceTypes").
      * A relative resource type is made absolute by prefixing it with the value set through the
-     * {@link #sling_servlet_prefix()} property.
+     * {@link SlingServletPrefix} annotation.
      * <p>
      */
     String[] resourceTypes();
@@ -72,28 +72,4 @@ public @interface SlingServletByResourceType {
      * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3">HTTP 1.1 Spec Methods</a>
      */
     String[] methods() default {};
-    
-    /**
-     * The prefix/index to be used to register this servlet.
-     * It only is applied as prefix to {@link #sling_servlet_paths()} and 
-     * in case they do not start with a "/".
-     * </p>
-     * <ul>
-     * <li>If the value of this element is a number, it defines the index of the search
-     * path entries from the resource resolver. The defined search path is used as
-     * a prefix to mount this servlet. The number can be -1 which always points to the
-     * last search entry. If the specified value is higher than than the highest index
-     * of the search paths, the last entry is used. The index starts with 0.
-     * If the value of this property is a string and parseable as a number, the above
-     * logic is used.</li>
-     * <li>If the value of this element is a string starting with "/", this value is applied
-     * as a prefix, regardless of the configured search paths!</li>
-     * <li>If the value is anything else, it is ignored.</li>
-     * </ul>
-     * If this property is empty, the configuration of the {@code org.apache.sling.servlets.resolver.internal.SlingServletResolver}
-     * service is used.
-     * In case even that one is not set "/" is used as prefix.
-     * @see ServletResolverConstants#SLING_SERVLET_PREFIX
-     */
-    String prefix() default "";
 }
