@@ -20,10 +20,10 @@
         <relativePath/>
     </parent>
 
-    <artifactId>sling-org-apache-sling-servlets-annotations</artifactId>
+    <artifactId>org.apache.sling.servlets.annotations</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>Apache Sling Servlets Annotations</name>
+    <name>Apache Sling Servlet Annotations</name>
     <description>
       OSGi DS 1.4 component property type annotations for Sling servlets and filters
     </description>
