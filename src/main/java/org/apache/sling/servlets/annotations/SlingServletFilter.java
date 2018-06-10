@@ -18,14 +18,15 @@ package org.apache.sling.servlets.annotations;
 
 import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.osgi.service.component.annotations.ComponentPropertyType;
+import org.osgi.service.component.propertytypes.ServiceRanking;
 
 /** 
  * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlet Filters. 
- * Takes care of writing the relevant component properties as being used by the Sling Servlet Resolver 
+ * Takes care of writing the relevant service properties as being used by the Sling Servlet Resolver 
  * ({@link ServletResolverConstants}) to register the annotated servlet filter component as
  * Sling servlet filter. 
  * <br><br>
- * The order of the filter is determined by the property {@code service.ranking}. Its value is used to sort the filters. 
+ * The order of the filter is determined by the property {@code service.ranking}. To set it use the annotation {@link ServiceRanking}. Its value is used to sort the filters. 
  * Filters with a higher order are executed before a filter with a lower order. If two filters have the same order, 
  * the one with the lower service id is executed first.
  * <br>

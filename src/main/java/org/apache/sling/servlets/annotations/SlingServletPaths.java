@@ -20,7 +20,7 @@ import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.osgi.service.component.annotations.ComponentPropertyType;
 /**
  * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlets.
- * Takes care of writing the relevant component properties as being used by the Sling Servlet Resolver ({@link ServletResolverConstants})
+ * Takes care of writing the relevant service properties as being used by the Sling Servlet Resolver ({@link ServletResolverConstants})
  * to register the annotated servlet component as Sling servlet for a specific path.
  * Preferably register Sling servlets by resource type ({@link SlingServletResourceTypes}) though 
  * for reasons outlined at <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html#caveats-when-binding-servlets-by-path">
