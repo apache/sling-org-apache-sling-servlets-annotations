@@ -43,7 +43,7 @@ public @interface SlingServletPaths {
      * A servlet using this property might be ignored unless its path is included
      * in the Execution Paths {@code servletresolver.paths} configuration setting of the
      * {@code org.apache.sling.servlets.resolver.internal.SlingServletResolver} service.
-     * 
+     * @return the absolute paths under which the servlet is accessible as a resource
      * @see ServletResolverConstants#SLING_SERVLET_PATHS
      */
     String[] value();

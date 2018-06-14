@@ -40,7 +40,7 @@ public @interface SlingServletResourceTypes {
      * is "sling.servlet.resourceTypes").
      * A relative resource type is made absolute by prefixing it with the value set through the
      * {@link SlingServletPrefix} annotation.
-     * <p>
+     * @return the resource type(s)
      */
     String[] resourceTypes();
     
@@ -50,6 +50,7 @@ public @interface SlingServletResourceTypes {
      * is as a list of dot-separated strings such as <em>print.a4</em>.
      * In case this is not empty the first selector(s) (i.e. the most right-hand ones in the URL) must match, 
      * otherwise the servlet is not executed. After that may follow arbitrarily many non-registered selectors.
+     * @return the selector(s)
      * @see ServletResolverConstants#SLING_SERVLET_SELECTORS
      */
     String[] selectors() default {};
@@ -59,6 +60,7 @@ public @interface SlingServletResourceTypes {
      * for GET requests.
      * <p>
      * It this is not set, the servlet is not limited to certain extensions.
+     * @return the extension(s)
      * @see ServletResolverConstants#SLING_SERVLET_EXTENSIONS
      */
     String[] extensions() default {};
@@ -68,6 +70,7 @@ public @interface SlingServletResourceTypes {
      * methods or "*" for all methods.
      * <p>
      * If this is not set (i.e. empty array) it is assumed to be {@code GET} and {@code HEAD}.
+     * @return the methods(s)
      * @see ServletResolverConstants#SLING_SERVLET_METHODS
      * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3">HTTP 1.1 Spec Methods</a>
      */

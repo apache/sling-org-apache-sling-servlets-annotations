@@ -50,12 +50,14 @@ public @interface SlingServletFilter {
 
     /** 
      * Restrict the filter to paths that match the supplied regular expression. Requires Sling Engine 2.4.0.
+     * @return the pattern to restrict the filter
      */
     String pattern() default "";
 
     /** 
-     * The scopes of a filter. If the filter has request scope, it is run once for a request. If the filter has component scope, it is run
+     * The scopes of the filter. If the filter has request scope, it is run once for a request. If the filter has component scope, it is run
      * once for every included component (rendering). 
+     * @return the scope of the filter
      */
     SlingServletFilterScope[] scope() default SlingServletFilterScope.REQUEST;
 }

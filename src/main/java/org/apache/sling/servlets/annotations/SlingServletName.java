@@ -39,6 +39,7 @@ public @interface SlingServletName {
      * <code>component.name</code> property or the <code>service.pid</code>
      * is used. If none of the three properties is defined, the Servlet is
      * ignored.
+     * @return the servlet name
      * @see ServletResolverConstants#SLING_SERVLET_NAME
      */
     String servletName();

@@ -43,7 +43,7 @@ public enum SlingServletFilterScope {
     /**
      * Filters are called upon {@link HttpServletResponse#sendError(int)} or {@link HttpServletResponse#sendError(int, String)}
      * or any uncaught Throwable before resolving the error handler Servlet or script.
-     * <p>Servlet API Correspondence: {@code ERROR}</
+     * <p>Servlet API Correspondence: {@code ERROR}</p>
      */
     ERROR("ERROR"),
 

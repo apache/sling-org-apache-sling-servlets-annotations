@@ -47,6 +47,7 @@ public @interface SlingServletPrefix {
      * If this property is empty, the configuration of the {@code org.apache.sling.servlets.resolver.internal.SlingServletResolver}
      * service is used.
      * In case even that one is not set "/" is used as prefix.
+     * @return the prefix
      * @see ServletResolverConstants#SLING_SERVLET_PREFIX
      */
     String value();
