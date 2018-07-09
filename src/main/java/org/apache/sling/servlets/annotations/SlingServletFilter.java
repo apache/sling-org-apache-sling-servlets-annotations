@@ -43,21 +43,60 @@ import org.osgi.service.component.propertytypes.ServiceRanking;
 @ComponentPropertyType
 public @interface SlingServletFilter {
 
-    /** 
-     * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1) 
+    /**
+     * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
      */
     static final String PREFIX_ = "sling.filter.";
 
-    /** 
-     * Restrict the filter to paths that match the supplied regular expression. Requires Sling Engine 2.4.0.
-     * @return the pattern to restrict the filter
-     */
-    String pattern() default "";
-
-    /** 
+    /**
      * The scopes of the filter. If the filter has request scope, it is run once for a request. If the filter has component scope, it is run
-     * once for every included component (rendering). 
+     * once for every included component (rendering).
      * @return the scope of the filter
      */
     SlingServletFilterScope[] scope() default SlingServletFilterScope.REQUEST;
+
+    /** 
+     * Restrict the filter to request paths that match the supplied regular expression.
+     * Empty value will not restrict the filter on request path.  Requires Sling Engine 2.4.0.
+     * @return the request path pattern to restrict the filter
+     */
+    String pattern() default "";
+
+    /**
+     * Restrict the filter to request suffixes that match the supplied regular expression.
+     * Empty value will not restrict the filter on request suffix. Requires Sling Engine 2.7.0.
+     * @return the suffix pattern to restrict the filter
+     */
+    String suffix_pattern() default "";
+
+    /**
+     * Restrict the filter to resources that match any of the supplied resource types.
+     * Please note this is a sling resource API <code>isResourceType()</code> match, not a string match.
+     * Empty value will not restrict the filter on request's resource type. Requires Sling Engine 2.7.0.
+     * @return the resourceTypes to restrict the filter
+     */
+    String[] resourceTypes() default {};
+
+    /**
+     * Restrict the filter to methods that match request's.
+     * Empty value will not restrict the filter on request method. Requires Sling Engine 2.7.0.
+     * @return the methods to restrict the filter
+     */
+    String[] methods() default {};
+
+    /**
+     * Restrict the filter to extensions that match request's.
+     * Empty value will not restrict the filter on request extension. Requires Sling Engine 2.7.0.
+     * @return the extensions to restrict the filter
+     */
+    String[] extensions() default {};
+
+    /**
+     * Restrict the filter to request selectors that match any of the request's.
+     * At least one selector must match one of the provided selectors.
+     * Empty value will not restrict the filter on request selectors. Requires Sling Engine 2.7.0.
+     * @return the selectors to restrict the filter
+     */
+    String[] selectors() default {};
+
 }
