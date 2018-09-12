@@ -56,8 +56,7 @@ public @interface SlingServletResourceTypes {
     String[] selectors() default {};
     
     /**
-     * The request URL extensions supported by the servlet
-     * for GET requests.
+     * The request URL extensions supported by the servlet.
      * <p>
      * It this is not set, the servlet is not limited to certain extensions.
      * @return the extension(s)
