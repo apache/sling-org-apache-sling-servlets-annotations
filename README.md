@@ -6,4 +6,13 @@
 
 This module is part of the [Apache Sling](https://sling.apache.org) project.
 
-OSGi DS 1.4 component property type annotations for Sling servlets and filters
+OSGi DS 1.4 component property type annotations for Sling servlets and filters|
+
+These annotations are documented on the following Apache Sling website pages:
+
+  * https://sling.apache.org/documentation/the-sling-engine/servlets.html
+  * https://sling.apache.org/documentation/the-sling-engine/filters.html
+
+And the code of the companion 
+[integration tests module](https://github.com/apache/sling-org-apache-sling-servlets-annotations-it) can help
+understand the details.
