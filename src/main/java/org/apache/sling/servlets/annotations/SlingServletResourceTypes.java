@@ -47,6 +47,9 @@ public @interface SlingServletResourceTypes {
     /**
      * The resource super type from which the servlet inherits (value is "sling.servlet.resourceSuperType").
      *
+     * <p>In order for this property to be taken into consideration, the {@code org.apache.sling.servlets.resolver} bundle needs to be
+     * deployed on the system, version 2.5.0 or above.
+     *
      * @return the resource super type
      * @see ServletResolverConstants#SLING_SERVLET_RESOURCE_SUPER_TYPE
      */
