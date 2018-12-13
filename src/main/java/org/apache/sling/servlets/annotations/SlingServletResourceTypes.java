@@ -53,7 +53,7 @@ public @interface SlingServletResourceTypes {
      * @return the resource super type
      * @see ServletResolverConstants#SLING_SERVLET_RESOURCE_SUPER_TYPE
      */
-    String resourceSuperType();
+    String resourceSuperType() default "";
 
     /**
      * One ore more request URL selectors supported by the servlet. The
