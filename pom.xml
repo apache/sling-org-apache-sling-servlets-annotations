@@ -58,7 +58,7 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.api</artifactId>
             <!-- https://issues.apache.org/jira/browse/SLING-6249, only for link in javadoc -->
-            <version>2.16.0</version>
+            <version>2.18.5-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
