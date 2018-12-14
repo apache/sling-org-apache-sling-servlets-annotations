@@ -45,15 +45,17 @@ public @interface SlingServletResourceTypes {
     String[] resourceTypes();
 
     /**
-     * The resource super type from which the servlet inherits (value is "sling.servlet.resourceSuperType").
+     * The resource super type from which the servlet inherits (value is "sling.servlet.resourceSuperType"). The default value of this
+     * registration property is "sling/bundle/resource".
      *
      * <p>In order for this property to be taken into consideration, the {@code org.apache.sling.servlets.resolver} bundle needs to be
      * deployed on the system, version 2.5.0 or above.
      *
      * @return the resource super type
      * @see ServletResolverConstants#SLING_SERVLET_RESOURCE_SUPER_TYPE
+     * @see <a href="https://sling.apache.org/documentation/the-sling-engine/resources.html#resource-types">Apache Sling Resource Types</a>
      */
-    String resourceSuperType() default "";
+    String resourceSuperType() default "sling/bundle/resource";
 
     /**
      * One ore more request URL selectors supported by the servlet. The
