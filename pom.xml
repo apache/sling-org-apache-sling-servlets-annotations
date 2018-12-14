@@ -20,7 +20,7 @@
     </parent>
 
     <artifactId>org.apache.sling.servlets.annotations</artifactId>
-    <version>1.2.3-SNAPSHOT</version>
+    <version>1.2.4</version>
 
     <name>Apache Sling Servlet Annotations</name>
     <description>
@@ -31,7 +31,7 @@
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-servlets-annotations.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-servlets-annotations.git</developerConnection>
         <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-servlets-annotations.git</url>
-        <tag>HEAD</tag>
+        <tag>org.apache.sling.servlets.annotations-1.2.4</tag>
     </scm>
 
     <!-- compile with java 7 -->
@@ -58,7 +58,7 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.api</artifactId>
             <!-- https://issues.apache.org/jira/browse/SLING-6249, only for link in javadoc -->
-            <version>2.20.1-SNAPSHOT</version>
+            <version>2.20.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
