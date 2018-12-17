@@ -22,7 +22,7 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
  * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlets.
  * Takes care of writing the relevant service properties as being used by the Sling Servlet Resolver ({@link ServletResolverConstants})
  * to register the annotated servlet component as Sling servlet for a specific resource type.
- * 
+ *
  * @see <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html">Sling Servlets</a>
  * @see ServletResolverConstants
  * @see <a href="https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingServlet.java">Felix SCR annotation</a>
@@ -43,18 +43,31 @@ public @interface SlingServletResourceTypes {
      * @return the resource type(s)
      */
     String[] resourceTypes();
-    
+
+    /**
+     * The resource super type from which the servlet inherits (value is "sling.servlet.resourceSuperType"). The default value of this
+     * registration property is "sling/bundle/resource".
+     *
+     * <p>In order for this property to be taken into consideration, the {@code org.apache.sling.servlets.resolver} bundle needs to be
+     * deployed on the system, version 2.5.0 or above.
+     *
+     * @return the resource super type
+     * @see ServletResolverConstants#SLING_SERVLET_RESOURCE_SUPER_TYPE
+     * @see <a href="https://sling.apache.org/documentation/the-sling-engine/resources.html#resource-types">Apache Sling Resource Types</a>
+     */
+    String resourceSuperType() default "sling/bundle/resource";
+
     /**
      * One ore more request URL selectors supported by the servlet. The
      * selectors must be configured in the order as they would be specified in the URL that
      * is as a list of dot-separated strings such as <em>print.a4</em>.
-     * In case this is not empty the first selector(s) (i.e. the one on the left in the URL) must match, 
+     * In case this is not empty the first selector(s) (i.e. the one on the left in the URL) must match,
      * otherwise the servlet is not executed. After that may follow arbitrarily many non-registered selectors.
      * @return the selector(s)
      * @see ServletResolverConstants#SLING_SERVLET_SELECTORS
      */
     String[] selectors() default {};
-    
+
     /**
      * The request URL extensions supported by the servlet.
      * <p>
@@ -63,9 +76,9 @@ public @interface SlingServletResourceTypes {
      * @see ServletResolverConstants#SLING_SERVLET_EXTENSIONS
      */
     String[] extensions() default {};
-    
+
     /**
-     * The request methods supported by the servlet. The value may be one of the HTTP 
+     * The request methods supported by the servlet. The value may be one of the HTTP
      * methods or "*" for all methods.
      * <p>
      * If this is not set (i.e. empty array) it is assumed to be {@code GET} and {@code HEAD}.
