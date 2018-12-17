@@ -36,9 +36,9 @@ public @interface SlingServletName {
 
     /**
      * Containing the name of the servlet. If this is empty (or not set), the
-     * <code>component.name</code> property or the <code>service.pid</code>
-     * is used. If none of the three properties is defined, the Servlet is
-     * ignored.
+     * <code>component.name</code> property, the <code>service.pid</code> or the
+     * <code>service.id</code> is used. At least the latter is  always ensured by the OSGi framework
+     * so a name is always set!
      * @return the servlet name
      * @see ServletResolverConstants#SLING_SERVLET_NAME
      */
