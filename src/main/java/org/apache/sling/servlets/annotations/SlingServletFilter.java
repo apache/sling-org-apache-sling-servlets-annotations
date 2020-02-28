@@ -56,9 +56,10 @@ public @interface SlingServletFilter {
     SlingServletFilterScope[] scope() default SlingServletFilterScope.REQUEST;
 
     /** 
-     * Restrict the filter to request paths that match the supplied regular expression.
-     * Empty value will not restrict the filter on request path.  Requires Sling Engine 2.4.0.
-     * @return the request path pattern to restrict the filter
+     * Restrict the filter to resource paths that match the supplied regular expression.
+     * <i>Important: The regex is matched against the resolved resource path excluding selectors, extension and suffix and not the request path!</i>
+     * Empty value will not restrict the filter on resource path(s).  Requires Sling Engine 2.4.0.
+     * @return the resource path pattern to restrict the filter
      */
     String pattern() default "";
 
