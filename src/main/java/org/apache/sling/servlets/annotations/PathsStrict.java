@@ -20,7 +20,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 /**
- * Marker meta-annotation to activate the strict resolution mode. 
+ * Meta marker annotation to activate the strict resolution mode. 
  * Only supposed to be used on the {@link SlingServletPathsStrict} to set the property correctly without allowing to modify it
  */
 @Target(ElementType.ANNOTATION_TYPE)
