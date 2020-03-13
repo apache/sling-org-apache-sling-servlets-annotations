@@ -23,7 +23,8 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
  * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlets.
  * 
  * Takes care of writing the relevant service properties as being used by the Sling Servlet Resolver ({@link ServletResolverConstants})
- * to register the annotated servlet component as Sling servlet for a specific path, using the SLING-8110 strict mode which
+ * to register the annotated servlet component as Sling servlet for a specific path, using the strict mode
+ * (defined in <a href="https://issues.apache.org/jira/browse/SLING-8110">SLING-8110</a>) which
  * optionally takes into account the request's extension, selectors and HTTP method.
  * 
  * Preferably register Sling servlets by resource type ({@link SlingServletResourceTypes}) though 
@@ -33,6 +34,7 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
  * @see <a href="https://sling.apache.org/documentation/the-sling-engine/servlets.html">Sling Servlets</a>
  * @see ServletResolverConstants
  * @see <a href="https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingServlet.java">Felix SCR annotation</a>
+ * @see SlingServletPaths
  */
 
 /** Using this requires the SLING-8110 strict mode */
