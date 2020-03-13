@@ -69,6 +69,11 @@ public @interface SlingServletPathsStrict {
     /** Activate the strict resolution mode. Must be set to true
      *  (which is the default) for the other options besides "paths"
      *  to be taken into account.
+     *
+     *  This value should NOT BE CHANGED: this annotation makes no sense
+     *  if this value is not "true". We don't have a way currently to define
+     *  constant values here (SLING-9055)
+     * 
      * @return the "strict" option value
      */
     boolean paths_strict() default true;
