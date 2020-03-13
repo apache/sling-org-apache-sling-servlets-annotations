@@ -42,6 +42,7 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
     version="1.1")
 
 @ComponentPropertyType
+@SlingServletPaths_Strict
 public @interface SlingServletPathsStrict {
     /**
      * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
@@ -63,13 +64,6 @@ public @interface SlingServletPathsStrict {
      * @see ServletResolverConstants#SLING_SERVLET_PATHS
      */
     String[] paths();
-
-    /** Activate the strict resolution mode. Must be set to true
-     *  (which is the default) for the other options besides "paths"
-     *  to be taken into account.
-     * @return the "strict" option value
-     */
-    boolean paths_strict() default true;
 
     /**
      * One or more request URL selectors supported by the servlet. If specified,
