@@ -24,6 +24,10 @@ import java.lang.annotation.Target;
  * Only supposed to be used on the {@link SlingServletPathsStrict} to set the property correctly without allowing to modify it
  */
 @Target(ElementType.ANNOTATION_TYPE)
-@interface SlingServletPaths_Strict {
+@interface PathsStrict {
 
+    /**
+     * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
+     */
+    static final String PREFIX_ = "sling.servlet.";
 }

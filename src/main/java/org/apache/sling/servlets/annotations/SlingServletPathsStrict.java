@@ -44,7 +44,7 @@ import org.osgi.service.component.annotations.ComponentPropertyType;
     version="1.1")
 
 @ComponentPropertyType
-@SlingServletPaths_Strict
+@PathsStrict
 public @interface SlingServletPathsStrict {
     /**
      * Prefix for every property being generated from the annotations elements (as defined in OSGi 7 Compendium, 112.8.2.1)
