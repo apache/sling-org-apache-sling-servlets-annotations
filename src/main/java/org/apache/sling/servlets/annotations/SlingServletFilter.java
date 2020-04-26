@@ -20,14 +20,14 @@ import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.osgi.service.component.annotations.ComponentPropertyType;
 import org.osgi.service.component.propertytypes.ServiceRanking;
 
-/** 
- * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlet Filters. 
- * Takes care of writing the relevant service properties as being used by the Sling Servlet Resolver 
+/**
+ * Component Property Type (as defined by OSGi DS 1.4) for Sling Servlet Filters.
+ * Takes care of writing the relevant service properties as being used by the Sling Servlet Resolver
  * ({@link ServletResolverConstants}) to register the annotated servlet filter component as
- * Sling servlet filter. 
+ * Sling servlet filter.
  * <br><br>
- * The order of the filter is determined by the property {@code service.ranking}. To set it use the annotation {@link ServiceRanking}. Its value is used to sort the filters. 
- * Filters with a higher order are executed before a filter with a lower order. If two filters have the same order, 
+ * The order of the filter is determined by the property {@code service.ranking}. To set it use the annotation {@link ServiceRanking}. Its value is used to sort the filters.
+ * Filters with a higher order are executed before a filter with a lower order. If two filters have the same order,
  * the one with the lower service id is executed first.
  * <br>
  * <br>
@@ -38,7 +38,7 @@ import org.osgi.service.component.propertytypes.ServiceRanking;
  * @see <a href=
  *      "https://github.com/apache/felix/blob/trunk/tools/org.apache.felix.scr.annotations/src/main/java/org/apache/felix/scr/annotations/sling/SlingFilter.java">Felix
  *      SCR annotation</a>
- * @see <a href="https://sling.apache.org/documentation/the-sling-engine/filters.html">Sling Servlet Filter</a> 
+ * @see <a href="https://sling.apache.org/documentation/the-sling-engine/filters.html">Sling Servlet Filter</a>
  */
 @ComponentPropertyType
 public @interface SlingServletFilter {
@@ -55,13 +55,37 @@ public @interface SlingServletFilter {
      */
     SlingServletFilterScope[] scope() default SlingServletFilterScope.REQUEST;
 
-    /** 
-     * Restrict the filter to resource paths that match the supplied regular expression.
-     * <i>Important: The regex is matched against the resolved resource path excluding selectors, extension and suffix and not the request path!</i>
-     * Empty value will not restrict the filter on resource path(s).  Requires Sling Engine 2.4.0.
-     * @return the resource path pattern to restrict the filter
+    /**
+     * Restrict the filter to resource or request paths that match the supplied regular expression.
+     * <i>Important: The regex is matched against both, the request path and, the resolved resource
+     * path excluding selectors, extension and suffix.</i>
+     * Empty value will not restrict the filter on path(s).
+     * <i>Sling Engine version < 2.6.14 : Only the request path is checked.</i>
+     * <i>Sling Engine version >= 2.6.14 and < 2.7.0 : Only the resource path is checked.</i>
+     * Requires Sling Engine 2.4.0.
+     * @return the path pattern to restrict the filter
      */
     String pattern() default "";
+
+    /**
+     * Restrict the filter to resource paths that match the supplied regular expression.
+     * <i>Important: The regex is matched against the resolved resource
+     * path excluding selectors, extension and suffix.</i>
+     * Empty value will not restrict the filter.
+     * Requires Sling Engine 2.7.0.
+     * @return the resource path pattern to restrict the filter
+     */
+    String resource_pattern() default "";
+
+    /**
+     * Restrict the filter to request paths that match the supplied regular expression.
+     * <i>Important: The regex is matched against the request
+     * path excluding selectors, extension and suffix!</i>
+     * Empty value will not restrict the filter.
+     * Requires Sling Engine 2.7.0.
+     * @return the resource path pattern to restrict the filter
+     */
+    String request_pattern() default "";
 
     /**
      * Restrict the filter to request suffixes that match the supplied regular expression.
