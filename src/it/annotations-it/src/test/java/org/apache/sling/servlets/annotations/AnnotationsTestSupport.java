@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.servlets.annotations.services.PathBoundService;
 import org.apache.sling.testing.clients.osgi.OsgiConsoleClient;
 import org.apache.sling.testing.paxexam.TestSupport;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
@@ -41,7 +41,7 @@ public class AnnotationsTestSupport extends TestSupport {
 
     private final static int STARTUP_WAIT_SECONDS = 30;
 
-    protected OsgiConsoleClient CLIENT;
+    protected static OsgiConsoleClient CLIENT;
     protected static int httpPort;
 
     @ClassRule
@@ -107,11 +107,17 @@ public class AnnotationsTestSupport extends TestSupport {
         ).getOptions();
     }
 
-    @Before
-    public void waitForSling() throws Exception {
+    @BeforeClass
+    public static void waitForSling() throws Exception {
         final URI url = new URI(String.format("http://localhost:%d", httpPort));
         CLIENT = new OsgiConsoleClient(url, "admin", "admin");
         CLIENT.waitExists("/", STARTUP_WAIT_SECONDS * 1000, 500);
         CLIENT.waitComponentRegistered(PathBoundService.class.getName(), 10 * 1000, 500);
+
+        // Verify stable status for a bit
+        for(int i=0; i < 10 ; i++) {
+            CLIENT.waitComponentRegistered(PathBoundService.class.getName(), 1000, 100);
+            Thread.sleep(100);
+        }
     }
 }
