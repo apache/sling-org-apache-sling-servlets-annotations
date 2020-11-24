@@ -35,6 +35,7 @@ import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.systemProperty;
 
 import java.net.URI;
+import java.net.ServerSocket;
 
 public class AnnotationsTestSupport extends TestSupport {
 
@@ -44,12 +45,25 @@ public class AnnotationsTestSupport extends TestSupport {
     protected static int httpPort;
 
     @ClassRule
-    public static PaxExamServer serverRule = new PaxExamServer();
+    public static PaxExamServer serverRule = new PaxExamServer() {
+        @Override
+        protected void before() throws Exception {
+            // Use a different port for each OSGi framework instance
+            // that's started - they can overlap if the previous one
+            // is not fully stopped when the next one starts.
+            setHttpPort();
+            super.before();
+        }
+    };
 
-    public AnnotationsTestSupport() {
-        if(httpPort == 0) {
-            // findFreePort should probably be a static method
-            httpPort = findFreePort();
+    /** TODO this duplicates TestSupport.findFreePort, which is not static */
+    static void setHttpPort() {
+        try {
+            final ServerSocket serverSocket = new ServerSocket(0);
+            httpPort = serverSocket.getLocalPort();
+            serverSocket.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

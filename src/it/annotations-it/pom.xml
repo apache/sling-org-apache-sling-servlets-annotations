@@ -31,7 +31,7 @@
     <!-- compile with java 7 -->
     <properties>
         <sling.java.version>8</sling.java.version>
-        <org.ops4j.pax.exam.version>4.13.3</org.ops4j.pax.exam.version>
+        <org.ops4j.pax.exam.version>4.13.4</org.ops4j.pax.exam.version>
         <!-- additional options that can be passed to Pax before executing the tests -->
         <pax.vm.options />
         <bundle.filename>${basedir}/target/${project.build.finalName}.jar</bundle.filename>
