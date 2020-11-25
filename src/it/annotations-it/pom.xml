@@ -28,7 +28,6 @@
       Integration tests for OSGi DS 1.4 component property type annotations for Sling servlets and filters
     </description>
 
-    <!-- compile with java 7 -->
     <properties>
         <sling.java.version>8</sling.java.version>
         <org.ops4j.pax.exam.version>4.13.4</org.ops4j.pax.exam.version>
@@ -41,11 +40,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M5</version>
-            </plugin>
-            <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
                 <version>5.0.0</version>
@@ -53,6 +47,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
                 <executions>
                     <execution>
                         <goals>
