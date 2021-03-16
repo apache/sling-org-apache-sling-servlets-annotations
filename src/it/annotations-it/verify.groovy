@@ -296,3 +296,5 @@ def assertNoProperty(xml, String [] names) {
         'sling.servlet.prefix',
     )
 }
+
+return true
