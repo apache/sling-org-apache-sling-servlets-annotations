@@ -60,8 +60,9 @@ public @interface SlingServletFilter {
      * <i>Important: The regex is matched against both, the request path and, the resolved resource
      * path excluding selectors, extension and suffix.</i>
      * Empty value will not restrict the filter on path(s).
-     * <i>Sling Engine version < 2.6.14 : Only the request path is checked.</i>
-     * <i>Sling Engine version >= 2.6.14 and < 2.7.0 : Only the resource path is checked.</i>
+     * <p>
+     * <i>Sling Engine version &lt; 2.6.14 : Only the request path is checked.</i>
+     * <i>Sling Engine version &gt;= 2.6.14 and &lt; 2.7.0 : Only the resource path is checked.</i>
      * Requires Sling Engine 2.4.0.
      * @return the path pattern to restrict the filter
      */
