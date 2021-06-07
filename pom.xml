@@ -126,8 +126,8 @@
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.api</artifactId>
-            <!-- https://issues.apache.org/jira/browse/SLING-6249, only for link in javadoc -->
-            <version>2.20.1-SNAPSHOT</version>
+            <!-- https://issues.apache.org/jira/browse/SLING-8170 -->
+            <version>2.20.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
