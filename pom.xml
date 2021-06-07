@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.apache.sling</groupId>
         <artifactId>sling</artifactId>
-        <version>33</version>
+        <version>43</version>
         <relativePath />
     </parent>
 
@@ -36,7 +36,8 @@
 
     <!-- compile with java 7 -->
     <properties>
-        <sling.java.version>7</sling.java.version>
+        <sling.java.version>8</sling.java.version>
+        <project.build.outputTimestamp>2021-06-06T15:10:15Z</project.build.outputTimestamp>
     </properties>
 
     <build>
