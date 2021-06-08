@@ -34,7 +34,6 @@
         <tag>HEAD</tag>
     </scm>
 
-    <!-- compile with java 7 -->
     <properties>
         <sling.java.version>8</sling.java.version>
         <project.build.outputTimestamp>2021-06-07T21:11:58Z</project.build.outputTimestamp>
