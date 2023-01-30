@@ -6,7 +6,7 @@
 
 This module is part of the [Apache Sling](https://sling.apache.org) project.
 
-OSGi DS 1.4 component property type annotations for Sling servlets and filters|
+OSGi DS 1.4 component property type annotations for Sling servlets and filters.
 
 These annotations are documented on the following Apache Sling website pages:
 
