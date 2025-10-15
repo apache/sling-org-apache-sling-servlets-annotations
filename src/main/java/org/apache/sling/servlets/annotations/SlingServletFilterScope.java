@@ -20,21 +20,22 @@ package org.apache.sling.servlets.annotations;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  * The possible scopes for the {@link SlingServletFilter#scope()} annotation.
  */
 public enum SlingServletFilterScope {
 
     /**
-     * Filters are called once per request hitting Sling from the outside. 
-     * These filters are called after the resource addressed by the request URL and the Servlet or script to process the request has been resolved 
+     * Filters are called once per request hitting Sling from the outside.
+     * These filters are called after the resource addressed by the request URL and the Servlet or script to process the request has been resolved
      * before the COMPONENT filters (if any) and the Servlet or script are called.
      * <p>Servlet API Correspondence: {@code REQUEST}</p>
      */
     REQUEST("REQUEST"),
 
     /**
-     * Filters are called upon calling the {@link RequestDispatcher#include(javax.servlet.ServletRequest, javax.servlet.ServletResponse)} 
+     * Filters are called upon calling the {@link RequestDispatcher#include(javax.servlet.ServletRequest, javax.servlet.ServletResponse)}
      * method after the included resource and the Servlet or script to process the include have been resolved before the Servlet or script is called.
      * <p>Servlet API Correspondence: {@code REQUEST},{@code INCLUDE},{@code FORWARD}</p>
      */
@@ -48,7 +49,7 @@ public enum SlingServletFilterScope {
     ERROR("ERROR"),
 
     /**
-     * Filters are called upon calling the RequestDispatcher.include method after the included resource and the Servlet 
+     * Filters are called upon calling the RequestDispatcher.include method after the included resource and the Servlet
      * or script to process the include have been resolved before the Servlet or script is called.
      * <p>Servlet API Correspondence: {@code INCLUDE}</p>
      */
@@ -78,5 +79,4 @@ public enum SlingServletFilterScope {
     public String toString() {
         return this.getScope();
     }
-
 }
